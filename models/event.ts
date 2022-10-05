@@ -17,7 +17,7 @@ module.exports = class Event extends Sequelize.Model {
           comment: "상품이름",
         },
         product_img: {
-          type: Sequelize.INTEGER.UNSIGNED,
+          type: Sequelize.STRING(255),
           allowNull: false,
           comment: "상품이미지",
         },
@@ -36,6 +36,11 @@ module.exports = class Event extends Sequelize.Model {
           allowNull: false,
           comment: "이벤트  종료",
         },
+        admin_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          comment: "어드민 아이디",
+        },
       },
       {
         sequelize,
@@ -53,8 +58,6 @@ module.exports = class Event extends Sequelize.Model {
     db.event.belongsTo(db.Admin, {
       foreignKey: "event",
       targetKey: "id",
-      onDelete: "cascade",
-      onUpdate: "cascade",
     });
   }
 };
