@@ -55,9 +55,9 @@ module.exports = class Event extends Sequelize.Model {
     );
   }
   static associate(db: any) {
-    db.event.belongsTo(db.Admin, {
+    db.Event.belongsTo(db.Admin, {
       foreignKey: "event_id",
-      targetKey: "event_id",
+      targetKey: "admin_id",
     });
   }
 };
