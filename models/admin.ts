@@ -43,10 +43,8 @@ module.exports = class Admin extends Sequelize.Model {
 
   static associate(db: any) {
     db.Admin.hasMany(db.Event, {
-      foreignKey: "Admin",
-      sourceKey: "id",
-      onDelete: "cascade",
-      onUpdate: "cascade",
+      foreignKey: "admin_id",
+      sourceKey: "admin_id",
     });
   }
 };
